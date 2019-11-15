@@ -1,0 +1,25 @@
+.movie {
+  &-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  &-item {
+    max-height: 500px;
+    max-width: 300px;
+    margin: 1em;
+    &__title {
+      font-size: 1rem;
+      word-break: normal;
+      width: 270px;
+    }
+    &__img {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+}
