@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchMovies, setSearchValue } from "../../actions/";
+import "./MovieSearch.scss";
 
 class MovieSearch extends Component {
   handleChange = e => {
@@ -11,14 +12,14 @@ class MovieSearch extends Component {
   render() {
     const { fetchMovies, searchValue } = this.props;
     return (
-      <div>
-        <input onChange={this.handleChange} type="text" />
+      <section className="movie-search">
         <input
-          type="button"
-          onClick={() => fetchMovies(searchValue)}
-          value="Search"
+          className="movie-search__input"
+          onChange={this.handleChange}
+          type="text"
         />
-      </div>
+        <button className="button" onClick={() => fetchMovies(searchValue)}>Search</button>
+      </section>
     );
   }
 }
