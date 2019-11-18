@@ -1,28 +1,23 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchMovies } from "../../actions/fetchMovies";
+import { fetchMovies, setSearchValue } from "../../actions/";
 
 class MovieSearch extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchValue: ""
-    };
-  }
-
   handleChange = e => {
-    this.setState({
-      searchValue: e.target.value
-    });
+    const { setSearchValue } = this.props;
+    setSearchValue(e.target.value);
   };
 
-  //MAKE HANDLECHANGE TO STATE!
   render() {
-    const { fetchMovies } = this.props;
+    const { fetchMovies, searchValue } = this.props;
     return (
       <div>
         <input onChange={this.handleChange} type="text" />
-        <input type="button" onClick={fetchMovies} value="Search" />
+        <input
+          type="button"
+          onClick={() => fetchMovies(searchValue)}
+          value="Search"
+        />
       </div>
     );
   }
@@ -32,13 +27,16 @@ function mapStateToProps(state) {
   return {
     movies: state.movies,
     isLoading: state.isLoading,
-    searchValue: state.searchValue
+    searchValue: state.search.searchValue
   };
 }
 function mapDispatchToProps(dispatch) {
   return {
-    fetchMovies: () => {
-      dispatch(fetchMovies());
+    fetchMovies: movieName => {
+      dispatch(fetchMovies(movieName));
+    },
+    setSearchValue: searchValue => {
+      dispatch(setSearchValue(searchValue));
     }
   };
 }

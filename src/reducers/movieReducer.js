@@ -1,5 +1,5 @@
 export default function movieReducer(
-  state = { movies: [], isLoading: true, input: {} },
+  state = { movies: [], isLoading: true },
   action
 ) {
   switch (action.type) {

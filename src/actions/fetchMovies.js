@@ -6,7 +6,7 @@ export function setMovies(data) {
     payload: data
   };
 }
-
+  
 export function fetchMovies(searchValue) {
   return dispatch => {
     return axios
