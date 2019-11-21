@@ -18,7 +18,9 @@ class MovieSearch extends Component {
           onChange={this.handleChange}
           type="text"
         />
-        <button className="button" onClick={() => fetchMovies(searchValue)}>Search</button>
+        <button className="button" onClick={() => fetchMovies(searchValue)}>
+          Search
+        </button>
       </section>
     );
   }
@@ -41,7 +43,4 @@ function mapDispatchToProps(dispatch) {
     }
   };
 }
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MovieSearch);
+export default connect(mapStateToProps, mapDispatchToProps)(MovieSearch);
